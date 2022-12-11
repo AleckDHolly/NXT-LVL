@@ -5,6 +5,7 @@
 //  Created by Aleck Holly on 2022-12-06.
 //
 
+
 import Foundation
 
 struct Results: Codable, Identifiable {
@@ -16,8 +17,8 @@ struct Results: Codable, Identifiable {
     
 }
 
-class Items {
-    static let sharedInstance = Items()
-    var array = [Results]()
-}
+
+
+
+
 

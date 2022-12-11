@@ -11,11 +11,9 @@ import SwiftUI
 struct QuotesView: View {
     
     @State var imageNumber = Int.random(in: 1...33)
-    @State var randomQuote = Int.random(in: 0...1643)
+    @State var randomQuote = Int.random(in: 0...1642)
     @ObservedObject var networkManager = NetworkManager()
     @State var disabledButton = false
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Quotes.plist")
-    
     
     
     var body: some View {
@@ -24,25 +22,25 @@ struct QuotesView: View {
                 Spacer()
                 VStack {
                     Text(randomText())
-                        .font(.title)
+                        .font(.title2)
                         .fontWeight(.medium)
                         .multilineTextAlignment(.leading)
-                        .padding(.trailing)
+                        .padding(.all, 7.5)
                     HStack {
                         Spacer()
                         Text(randomAuthor())
-                            .font(.title)
+                            .font(.title2)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.trailing)
+                            .padding(.all, 7.5)
                     }
                 }
                 .background(Color.gray.opacity(0.75))
-                .cornerRadius(5)
+                .cornerRadius(6.5)
                 .padding(.all)
                 Button("Save Quote") {
-                    updateList()
+                    addQuote()
                     disableButton()
-                    saveData()
                 }
                 .padding(.all, 10.0)
                 .foregroundColor(Color("AccentColor"))
@@ -53,7 +51,7 @@ struct QuotesView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        imageNumber = Int.random(in: 1...35)
+                        imageNumber = Int.random(in: 1...33)
                         randomQuote = Int.random(in: 0...1643)
                         disabledButton = false
                     }, label: {
@@ -82,42 +80,35 @@ struct QuotesView: View {
     
     func randomText() -> String {
         var text: String = ""
-        for _ in networkManager.quotes {
+        for _ in $networkManager.quotes {
             text = "\(networkManager.quotes[randomQuote].text)"
         }
         return text
     }
-    
+
     func randomAuthor() -> String {
         var author: String = ""
-        for _ in networkManager.quotes {
+        for _ in $networkManager.quotes {
             author = "\n-\(networkManager.quotes[randomQuote].author ?? "Unknown")"
         }
         return author
     }
     
-    func updateList(){
-        Items.sharedInstance.array.insert(networkManager.quotes[randomQuote], at: 0)
-        print(Items.sharedInstance.array)
+    func addQuote() {
+        let newQuote = Quote(context: QuotesDataController.sharedInstance.container.viewContext)
+        newQuote.text = randomText()
+        newQuote.author = randomAuthor()
+        QuotesDataController.sharedInstance.saveData()
     }
     
     func disableButton() {
-        for quote in Items.sharedInstance.array {
+        for quote in QuotesDataController.sharedInstance.savedQuotes {
             if quote.text == quote.text {
                 disabledButton = true
             }
         }
     }
     
-    func saveData() {
-        let encoder = PropertyListEncoder()
-        do{
-            let data = try encoder.encode(Items.sharedInstance.array)
-            try data.write(to: dataFilePath!)
-        } catch {
-            print("Error encoding Quotes array, \(error)")
-        }
-    }
 }
 
 struct Quotes_Previews: PreviewProvider {
