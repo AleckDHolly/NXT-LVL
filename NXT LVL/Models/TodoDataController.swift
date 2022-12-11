@@ -12,6 +12,7 @@ class TodoDataController: ObservableObject {
     let container = NSPersistentContainer(name: "DataModel")
     @Published var savedText: [TodoList] = []
     
+    
     init() {
         container.loadPersistentStores{ description, error in
             if let error = error {
@@ -20,6 +21,7 @@ class TodoDataController: ObservableObject {
         }
         fetchTodo()
     }
+
     
     func fetchTodo() {
         let request = NSFetchRequest<TodoList>(entityName: "TodoList")

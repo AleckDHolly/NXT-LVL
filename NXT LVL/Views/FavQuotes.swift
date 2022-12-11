@@ -30,6 +30,9 @@ struct FavQuotes: View {
                         QuotesDataController.sharedInstance.deleteQuote(indexSet: quote)
                         populateQuotes()
                     }
+                    Text("Swipe left to delete a quote..")
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(Color("lightGray"))
                 }
                 .scrollContentBackground(.hidden)
                 .background(Image("Favs").resizable(capInsets: EdgeInsets()).aspectRatio(contentMode: .fill).opacity(0.95).edgesIgnoringSafeArea(.all))

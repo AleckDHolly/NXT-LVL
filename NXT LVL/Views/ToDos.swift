@@ -50,6 +50,8 @@ struct ToDos: View {
                     .sheet(isPresented: $showingCredits) {
                         VStack{
                             Spacer()
+                            Text("Swipe left to delete a note..")
+                                .foregroundColor(Color("lightGray"))
                             TextField("Add A Note: ", text: $textFieldText)
                                 .presentationDetents(Set(arrayLiteral: .medium))
                                 .onSubmit{
