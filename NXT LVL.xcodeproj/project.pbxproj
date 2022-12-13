@@ -16,6 +16,8 @@
 		0D85D9F12945C63B00E8F2E2 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D85D9EF2945C63B00E8F2E2 /* DataModel.xcdatamodeld */; };
 		0D85D9F42946037400E8F2E2 /* QuotesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85D9F32946037400E8F2E2 /* QuotesDataController.swift */; };
 		0D85D9F6294603D700E8F2E2 /* TodoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85D9F5294603D700E8F2E2 /* TodoDataController.swift */; };
+		0DBF31B0294878AA0003292E /* ListBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF31AF294878AA0003292E /* ListBackground.swift */; };
+		0DBF31B629489A7D0003292E /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0DBF31B529489A7D0003292E /* PartialSheet */; };
 		0DFB4B29293DD13900EBFB21 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFB4B28293DD13900EBFB21 /* Launch Screen.storyboard */; };
 		0DFB4B2B293DD2A200EBFB21 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B2A293DD2A200EBFB21 /* TabBar.swift */; };
 		0DFB4B2D293DD33800EBFB21 /* ToDos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B2C293DD33800EBFB21 /* ToDos.swift */; };
@@ -34,6 +36,7 @@
 		0D85D9F02945C63B00E8F2E2 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		0D85D9F32946037400E8F2E2 /* QuotesDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesDataController.swift; sourceTree = "<group>"; };
 		0D85D9F5294603D700E8F2E2 /* TodoDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataController.swift; sourceTree = "<group>"; };
+		0DBF31AF294878AA0003292E /* ListBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackground.swift; sourceTree = "<group>"; };
 		0DFB4B28293DD13900EBFB21 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0DFB4B2A293DD2A200EBFB21 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		0DFB4B2C293DD33800EBFB21 /* ToDos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDos.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBF31B629489A7D0003292E /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +121,7 @@
 				0D6C7344293F38430028078D /* Results.swift */,
 				0D85D9F32946037400E8F2E2 /* QuotesDataController.swift */,
 				0D85D9F5294603D700E8F2E2 /* TodoDataController.swift */,
+				0DBF31AF294878AA0003292E /* ListBackground.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +142,9 @@
 			dependencies = (
 			);
 			name = "NXT LVL";
+			packageProductDependencies = (
+				0DBF31B529489A7D0003292E /* PartialSheet */,
+			);
 			productName = "NXT LVL";
 			productReference = 0D6D602A293B0F3A00582876 /* Motoo.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 0D6D6021293B0F3A00582876;
+			packageReferences = (
+				0DBF31B429489A7D0003292E /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = 0D6D602B293B0F3A00582876 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +206,7 @@
 				0DFB4B2B293DD2A200EBFB21 /* TabBar.swift in Sources */,
 				0DFB4B31293DD36100EBFB21 /* QuotesView.swift in Sources */,
 				0D6D6030293B0F3A00582876 /* HomeView.swift in Sources */,
+				0DBF31B0294878AA0003292E /* ListBackground.swift in Sources */,
 				0D85D9F6294603D700E8F2E2 /* TodoDataController.swift in Sources */,
 				0D6D602E293B0F3A00582876 /* NXT_LVLApp.swift in Sources */,
 				0D85D9F42946037400E8F2E2 /* QuotesDataController.swift in Sources */,
@@ -259,7 +271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -313,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -342,12 +354,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kcela.Motoo;
 				PRODUCT_NAME = Motoo;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -378,12 +390,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kcela.Motoo;
 				PRODUCT_NAME = Motoo;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -417,6 +429,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0DBF31B429489A7D0003292E /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0DBF31B529489A7D0003292E /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DBF31B429489A7D0003292E /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0D85D9EF2945C63B00E8F2E2 /* DataModel.xcdatamodeld */ = {

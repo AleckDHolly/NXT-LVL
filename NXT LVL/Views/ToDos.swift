@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 struct ToDos: View {
     
@@ -13,6 +14,13 @@ struct ToDos: View {
     @State private var todoText: [TodoList] = [TodoList]()
     @State var textFieldText: String = ""
     @StateObject var todoDataController = TodoDataController()
+    @State private var longer: Bool = false
+    
+    init() {
+      if #unavailable(iOS 16.0) {
+        UITableView.appearance().backgroundColor = .clear
+      }
+    }
     
     var body: some View {
         ZStack {
@@ -27,8 +35,11 @@ struct ToDos: View {
                             }
                         }
                         .onDelete(perform: todoDataController.deleteTodo)
+                        Text("Swipe left to delete a note..")
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .foregroundColor(Color("lightGray"))
                     }
-                    .scrollContentBackground(.hidden)
+                    .clearListBackground()
                     .background(Image("Home").resizable(capInsets: EdgeInsets()).aspectRatio(contentMode: .fill).opacity(0.95).edgesIgnoringSafeArea(.all))
                     .navigationTitle("To Do's")
                 }
@@ -47,13 +58,10 @@ struct ToDos: View {
                             .foregroundColor(Color("AccentColor"))
                             .padding(.all, 7)
                     })
-                    .sheet(isPresented: $showingCredits) {
+                    .partialSheet(isPresented: $showingCredits) {
                         VStack{
                             Spacer()
-                            Text("Swipe left to delete a note..")
-                                .foregroundColor(Color("lightGray"))
                             TextField("Add A Note: ", text: $textFieldText)
-                                .presentationDetents(Set(arrayLiteral: .medium))
                                 .onSubmit{
                                     addToDo()
                                 }
@@ -74,6 +82,7 @@ struct ToDos: View {
                             .cornerRadius(10)
                             Spacer()
                         }
+                        .frame(height: 350)
                     }
                     .background(Color("ReverseAccColor"))
                     .cornerRadius(38.5)
@@ -98,4 +107,3 @@ struct ToDos_Previews: PreviewProvider {
         ToDos()
     }
 }
-

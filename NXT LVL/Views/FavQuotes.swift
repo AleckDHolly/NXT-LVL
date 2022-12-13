@@ -12,6 +12,12 @@ struct FavQuotes: View {
     
     @State private var quotes: [Quote] = [Quote]()
     
+    init() {
+      if #unavailable(iOS 16.0) {
+        UITableView.appearance().backgroundColor = .clear
+      }
+    }
+    
     var body: some View{
         ZStack {
             NavigationView() {
@@ -34,7 +40,7 @@ struct FavQuotes: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .foregroundColor(Color("lightGray"))
                 }
-                .scrollContentBackground(.hidden)
+                .clearListBackground()
                 .background(Image("Favs").resizable(capInsets: EdgeInsets()).aspectRatio(contentMode: .fill).opacity(0.95).edgesIgnoringSafeArea(.all))
                 .navigationTitle("Favorite Quotes")
             }
