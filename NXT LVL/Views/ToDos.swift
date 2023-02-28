@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PartialSheet
 
 struct ToDos: View {
     
@@ -15,13 +14,6 @@ struct ToDos: View {
     @State var textFieldText: String = ""
     @StateObject var todoDataController = TodoDataController()
     @State private var longer: Bool = false
-    
-    init() {
-      if #unavailable(iOS 16.0) {
-        UITableView.appearance().backgroundColor = .clear
-      }
-    }
-    
     var body: some View {
         ZStack {
                 NavigationView() {
@@ -58,7 +50,7 @@ struct ToDos: View {
                             .foregroundColor(Color("AccentColor"))
                             .padding(.all, 7)
                     })
-                    .partialSheet(isPresented: $showingCredits) {
+                    .sheet(isPresented: $showingCredits) {
                         VStack{
                             Spacer()
                             TextField("Add A Note: ", text: $textFieldText)
@@ -82,7 +74,7 @@ struct ToDos: View {
                             .cornerRadius(10)
                             Spacer()
                         }
-                        .frame(height: 350)
+                        .presentationDetents([.medium])
                     }
                     .background(Color("ReverseAccColor"))
                     .cornerRadius(38.5)

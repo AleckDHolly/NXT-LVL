@@ -17,7 +17,6 @@
 		0D85D9F42946037400E8F2E2 /* QuotesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85D9F32946037400E8F2E2 /* QuotesDataController.swift */; };
 		0D85D9F6294603D700E8F2E2 /* TodoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D85D9F5294603D700E8F2E2 /* TodoDataController.swift */; };
 		0DBF31B0294878AA0003292E /* ListBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF31AF294878AA0003292E /* ListBackground.swift */; };
-		0DBF31B629489A7D0003292E /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0DBF31B529489A7D0003292E /* PartialSheet */; };
 		0DFB4B29293DD13900EBFB21 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFB4B28293DD13900EBFB21 /* Launch Screen.storyboard */; };
 		0DFB4B2B293DD2A200EBFB21 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B2A293DD2A200EBFB21 /* TabBar.swift */; };
 		0DFB4B2D293DD33800EBFB21 /* ToDos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B2C293DD33800EBFB21 /* ToDos.swift */; };
@@ -49,7 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DBF31B629489A7D0003292E /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +141,6 @@
 			);
 			name = "NXT LVL";
 			packageProductDependencies = (
-				0DBF31B529489A7D0003292E /* PartialSheet */,
 			);
 			productName = "NXT LVL";
 			productReference = 0D6D602A293B0F3A00582876 /* Motoo.app */;
@@ -174,7 +171,6 @@
 			);
 			mainGroup = 0D6D6021293B0F3A00582876;
 			packageReferences = (
-				0DBF31B429489A7D0003292E /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 0D6D602B293B0F3A00582876 /* Products */;
 			projectDirPath = "";
@@ -354,7 +350,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +386,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -429,25 +425,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0DBF31B429489A7D0003292E /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0DBF31B529489A7D0003292E /* PartialSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0DBF31B429489A7D0003292E /* XCRemoteSwiftPackageReference "PartialSheet" */;
-			productName = PartialSheet;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0D85D9EF2945C63B00E8F2E2 /* DataModel.xcdatamodeld */ = {

@@ -11,7 +11,7 @@ import SwiftUI
 struct NXT_LVLApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView().attachPartialSheetToRoot()
+            HomeView()
         }
     }
 }
