@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Results: Codable, Identifiable {
+struct Quotes: Codable, Identifiable {
     var id: String {
-        return text
+        return quote
     }
-    var text: String
+    var quote: String
     var author: String?
     
 }
