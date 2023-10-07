@@ -8,13 +8,10 @@
 
 import Foundation
 
-struct Quotes: Codable, Identifiable {
-    var id: String {
-        return quote
-    }
-    var quote: String
-    var author: String?
-    
+struct QuotesModel: Codable {
+    let quote: String
+    let author: String?
+    let category: String
 }
 
 

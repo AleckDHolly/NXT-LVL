@@ -11,9 +11,9 @@ import SwiftUI
 struct QuotesView: View {
     
     @State var imageNumber = Int.random(in: 1...33)
-    @State var randomQuote = Int.random(in: 0...1642)
-    @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject var quotesManager = QuotesViewModel()
     @State var disabledButton = false
+    @State var hasFetchedData = false
     
     
     var body: some View {
@@ -21,23 +21,29 @@ struct QuotesView: View {
             VStack {
                 Spacer()
                 VStack {
-                    Text(randomText())
-                        .font(.title2)
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.leading)
-                        .padding(.all, 7.5)
-                    HStack {
-                        Spacer()
-                        Text(randomAuthor())
+                    if let quote = quotesManager.quote {
+                        Text(quote[0].quote)
                             .font(.title2)
-                            .fontWeight(.semibold)
-                            .multilineTextAlignment(.trailing)
+                            .fontWeight(.medium)
+                            .multilineTextAlignment(.leading)
                             .padding(.all, 7.5)
+                        HStack {
+                            Spacer()
+                            Text(quote[0].author ?? "Unknown")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .multilineTextAlignment(.trailing)
+                                .padding(.all, 7.5)
+                        }
+                    } else {
+                        ProgressView("Loading...")
+                            .progressViewStyle(CircularProgressViewStyle())
                     }
                 }
                 .background(Color.gray.opacity(0.75))
                 .cornerRadius(6.5)
                 .padding(.all)
+                
                 Button("Save Quote") {
                     addQuote()
                     disableButton()
@@ -52,8 +58,8 @@ struct QuotesView: View {
                     Spacer()
                     Button(action: {
                         imageNumber = Int.random(in: 1...33)
-                        randomQuote = Int.random(in: 0...1643)
                         disabledButton = false
+                        quotesManager.fetchData()
                     }, label: {
                         Image(systemName: "arrow.counterclockwise")
                             .font(.system(.largeTitle))
@@ -68,9 +74,14 @@ struct QuotesView: View {
                     .shadow(color: .gray, radius: 5, x: 3, y: 3)
                 }
             }
-            .onAppear(perform: networkManager.fetchData)
             .background(Color.clear)
             .padding(.bottom, 15)
+        }
+        .onAppear{
+            if !hasFetchedData {
+                quotesManager.fetchData()
+                hasFetchedData = true
+            }
         }
         .background(
             Image(String(imageNumber))
@@ -78,32 +89,16 @@ struct QuotesView: View {
         )
     }
     
-    func randomText() -> String {
-        var text: String = ""
-        for _ in $networkManager.quotes {
-            text = "\(networkManager.quotes[randomQuote].text)"
-        }
-        return text
-    }
-
-    func randomAuthor() -> String {
-        var author: String = ""
-        for _ in $networkManager.quotes {
-            author = "\n-\(networkManager.quotes[randomQuote].author ?? "Unknown")"
-        }
-        return author
-    }
-    
     func addQuote() {
         let newQuote = Quote(context: QuotesDataController.sharedInstance.container.viewContext)
-        newQuote.text = randomText()
-        newQuote.author = randomAuthor()
+        newQuote.quote = quotesManager.quote?[0].quote
+        newQuote.author = quotesManager.quote?[0].author ?? "Unknown"
         QuotesDataController.sharedInstance.saveData()
     }
     
     func disableButton() {
         for quote in QuotesDataController.sharedInstance.savedQuotes {
-            if quote.text == quote.text {
+            if quote.quote == quote.quote {
                 disabledButton = true
             }
         }

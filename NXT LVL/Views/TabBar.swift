@@ -15,10 +15,10 @@ struct TabBar: View {
     
     var body: some View {
         TabView {
-            ToDos()
+            Notes()
                 .tabItem {
-                    Image(systemName: "house")
-                    Text("To Do's")
+                    Image(systemName: "list.bullet.clipboard")
+                    Text("Notes")
                 }
             QuotesView()
                 .tabItem {

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D6C7345293F38430028078D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C7343293F38430028078D /* NetworkManager.swift */; };
-		0D6C7346293F38430028078D /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C7344293F38430028078D /* Results.swift */; };
+		0D6C7345293F38430028078D /* QuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C7343293F38430028078D /* QuotesViewModel.swift */; };
+		0D6C7346293F38430028078D /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C7344293F38430028078D /* Quotes.swift */; };
 		0D6D602E293B0F3A00582876 /* NXT_LVLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D602D293B0F3A00582876 /* NXT_LVLApp.swift */; };
 		0D6D6030293B0F3A00582876 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D602F293B0F3A00582876 /* HomeView.swift */; };
 		0D6D6032293B0F3B00582876 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6D6031293B0F3B00582876 /* Assets.xcassets */; };
@@ -19,14 +19,14 @@
 		0DBF31B0294878AA0003292E /* ListBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF31AF294878AA0003292E /* ListBackground.swift */; };
 		0DFB4B29293DD13900EBFB21 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFB4B28293DD13900EBFB21 /* Launch Screen.storyboard */; };
 		0DFB4B2B293DD2A200EBFB21 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B2A293DD2A200EBFB21 /* TabBar.swift */; };
-		0DFB4B2D293DD33800EBFB21 /* ToDos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B2C293DD33800EBFB21 /* ToDos.swift */; };
+		0DFB4B2D293DD33800EBFB21 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B2C293DD33800EBFB21 /* Notes.swift */; };
 		0DFB4B31293DD36100EBFB21 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B30293DD36100EBFB21 /* QuotesView.swift */; };
 		0DFB4B33293DD36B00EBFB21 /* FavQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB4B32293DD36B00EBFB21 /* FavQuotes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D6C7343293F38430028078D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		0D6C7344293F38430028078D /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		0D6C7343293F38430028078D /* QuotesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesViewModel.swift; sourceTree = "<group>"; };
+		0D6C7344293F38430028078D /* Quotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		0D6D602A293B0F3A00582876 /* Motoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6D602D293B0F3A00582876 /* NXT_LVLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXT_LVLApp.swift; sourceTree = "<group>"; };
 		0D6D602F293B0F3A00582876 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		0DBF31AF294878AA0003292E /* ListBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackground.swift; sourceTree = "<group>"; };
 		0DFB4B28293DD13900EBFB21 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0DFB4B2A293DD2A200EBFB21 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		0DFB4B2C293DD33800EBFB21 /* ToDos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDos.swift; sourceTree = "<group>"; };
+		0DFB4B2C293DD33800EBFB21 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		0DFB4B30293DD36100EBFB21 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		0DFB4B32293DD36B00EBFB21 /* FavQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavQuotes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +97,7 @@
 			children = (
 				0D6D602F293B0F3A00582876 /* HomeView.swift */,
 				0DFB4B2A293DD2A200EBFB21 /* TabBar.swift */,
-				0DFB4B2C293DD33800EBFB21 /* ToDos.swift */,
+				0DFB4B2C293DD33800EBFB21 /* Notes.swift */,
 				0DFB4B30293DD36100EBFB21 /* QuotesView.swift */,
 				0DFB4B32293DD36B00EBFB21 /* FavQuotes.swift */,
 			);
@@ -115,8 +115,8 @@
 		0DFB4B34293DD95D00EBFB21 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0D6C7343293F38430028078D /* NetworkManager.swift */,
-				0D6C7344293F38430028078D /* Results.swift */,
+				0D6C7343293F38430028078D /* QuotesViewModel.swift */,
+				0D6C7344293F38430028078D /* Quotes.swift */,
 				0D85D9F32946037400E8F2E2 /* QuotesDataController.swift */,
 				0D85D9F5294603D700E8F2E2 /* TodoDataController.swift */,
 				0DBF31AF294878AA0003292E /* ListBackground.swift */,
@@ -154,7 +154,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					0D6D6029293B0F3A00582876 = {
 						CreatedOnToolsVersion = 14.1;
@@ -206,11 +206,11 @@
 				0D85D9F6294603D700E8F2E2 /* TodoDataController.swift in Sources */,
 				0D6D602E293B0F3A00582876 /* NXT_LVLApp.swift in Sources */,
 				0D85D9F42946037400E8F2E2 /* QuotesDataController.swift in Sources */,
-				0D6C7345293F38430028078D /* NetworkManager.swift in Sources */,
+				0D6C7345293F38430028078D /* QuotesViewModel.swift in Sources */,
 				0DFB4B33293DD36B00EBFB21 /* FavQuotes.swift in Sources */,
 				0D85D9F12945C63B00E8F2E2 /* DataModel.xcdatamodeld in Sources */,
-				0D6C7346293F38430028078D /* Results.swift in Sources */,
-				0DFB4B2D293DD33800EBFB21 /* ToDos.swift in Sources */,
+				0D6C7346293F38430028078D /* Quotes.swift in Sources */,
+				0DFB4B2D293DD33800EBFB21 /* Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +253,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -313,6 +314,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

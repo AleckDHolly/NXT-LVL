@@ -24,7 +24,7 @@ struct FavQuotes: View {
                 List {
                     ForEach(quotes) { quotation in
                         VStack {
-                            Text(quotation.text!)
+                            Text(quotation.quote!)
                                 .multilineTextAlignment(.leading)
                             HStack {
                                 Spacer()

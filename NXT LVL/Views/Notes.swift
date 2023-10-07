@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ToDos: View {
+struct Notes: View {
     
     @State private var showingCredits = false
     @State private var todoText: [TodoList] = [TodoList]()
@@ -17,23 +17,25 @@ struct ToDos: View {
     var body: some View {
         ZStack {
                 NavigationView() {
-                    List {
-                        ForEach(todoDataController.savedText) { text in
-                            HStack {
-                                Text(text.todoText ?? "")
-                                    .multilineTextAlignment(.trailing)
-                                    .padding(.all, 1)
-                                Spacer()
+                    GeometryReader{ geo in
+                        List {
+                            ForEach(todoDataController.savedText) { text in
+                                HStack {
+                                    Text(text.todoText ?? "")
+                                        .multilineTextAlignment(.trailing)
+                                        .padding(.all, 1)
+                                    Spacer()
+                                }
                             }
+                            .onDelete(perform: todoDataController.deleteTodo)
+                            Text("Swipe left to delete a note..")
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .foregroundColor(Color("lightGray"))
                         }
-                        .onDelete(perform: todoDataController.deleteTodo)
-                        Text("Swipe left to delete a note..")
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .foregroundColor(Color("lightGray"))
+                        .clearListBackground()
+                        .background(Image(.mindset).resizable(capInsets: EdgeInsets()).aspectRatio(contentMode: .fill).opacity(0.95).ignoresSafeArea().offset(x: -geo.size.width/4))
+                        .navigationTitle("Notes")
                     }
-                    .clearListBackground()
-                    .background(Image("Home").resizable(capInsets: EdgeInsets()).aspectRatio(contentMode: .fill).opacity(0.95).edgesIgnoringSafeArea(.all))
-                    .navigationTitle("To Do's")
                 }
             VStack{
                 Spacer()
@@ -94,8 +96,8 @@ struct ToDos: View {
     }
 }
 
-struct ToDos_Previews: PreviewProvider {
+struct Notes_Previews: PreviewProvider {
     static var previews: some View {
-        ToDos()
+        Notes()
     }
 }
