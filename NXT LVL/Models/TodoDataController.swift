@@ -48,6 +48,12 @@ class TodoDataController: ObservableObject {
         }
     }
     
+    func updateTodo(_ todo: TodoList, with newText: String) {
+        todo.todoText = newText
+        saveData()
+    }
+
+    
     func deleteTodo(indexSet: IndexSet) {
         guard let index = indexSet.first else { return }
         let todo = savedText[index]

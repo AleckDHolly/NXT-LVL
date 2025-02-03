@@ -9,13 +9,12 @@ import SwiftUI
 import CoreData
 
 struct FavQuotes: View {
-    
     @State private var quotes: [Quote] = [Quote]()
     
     init() {
-      if #unavailable(iOS 16.0) {
-        UITableView.appearance().backgroundColor = .clear
-      }
+        if #unavailable(iOS 16.0) {
+            UITableView.appearance().backgroundColor = .clear
+        }
     }
     
     var body: some View{
@@ -32,7 +31,8 @@ struct FavQuotes: View {
                                     .multilineTextAlignment(.trailing)
                             }
                         }
-                    }.onDelete{quote in
+                    }
+                    .onDelete { quote in
                         QuotesDataController.sharedInstance.deleteQuote(indexSet: quote)
                         populateQuotes()
                     }
@@ -44,7 +44,8 @@ struct FavQuotes: View {
                 .background(Image("Favs").resizable(capInsets: EdgeInsets()).aspectRatio(contentMode: .fill).opacity(0.95).edgesIgnoringSafeArea(.all))
                 .navigationTitle("Favorite Quotes")
             }
-        }.onAppear{
+        }
+        .onAppear{
             populateQuotes()
         }
     }

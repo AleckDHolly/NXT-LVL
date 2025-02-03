@@ -9,42 +9,49 @@ import SwiftUI
 
 struct Notes: View {
     
-    @State private var showingCredits = false
-    @State private var todoText: [TodoList] = [TodoList]()
+    @State private var showingSheet = false
+//    @State private var todoText: [TodoList] = [TodoList]()
     @State var textFieldText: String = ""
+    @State private var selectedTodo: TodoList?
     @StateObject var todoDataController = TodoDataController()
-    @State private var longer: Bool = false
+    
     var body: some View {
         ZStack {
-                NavigationView() {
-                    GeometryReader{ geo in
-                        List {
-                            ForEach(todoDataController.savedText) { text in
-                                HStack {
-                                    Text(text.todoText ?? "")
-                                        .multilineTextAlignment(.trailing)
-                                        .padding(.all, 1)
-                                    Spacer()
-                                }
+            NavigationView() {
+                GeometryReader{ geo in
+                    List {
+                        ForEach(todoDataController.savedText) { text in
+                            HStack {
+                                Text(text.todoText ?? "")
+                                    .multilineTextAlignment(.trailing)
+                                    .padding(.all, 1)
+                                Spacer()
                             }
-                            .onDelete(perform: todoDataController.deleteTodo)
-                            Text("Swipe left to delete a note..")
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .foregroundColor(Color("lightGray"))
+                            .onLongPressGesture {
+                                selectedTodo = text
+                                textFieldText = text.todoText ?? ""
+                                showingSheet = true
+                            }
                         }
-                        .clearListBackground()
-                        .background(Image(.mindset).resizable(capInsets: EdgeInsets()).aspectRatio(contentMode: .fill).opacity(0.95).ignoresSafeArea().offset(x: -geo.size.width/4))
-                        .navigationTitle("Notes")
+                        .onDelete(perform: todoDataController.deleteTodo)
+                        Text("Swipe left to delete a note..")
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .foregroundColor(Color("lightGray"))
                     }
+                    .clearListBackground()
+                    .background(Image(.mindset).resizable(capInsets: EdgeInsets()).aspectRatio(contentMode: .fill).opacity(0.95).ignoresSafeArea().offset(x: -geo.size.width/4))
+                    .navigationTitle("Notes")
                 }
+            }
             VStack{
                 Spacer()
                 HStack {
                     Spacer()
                     Button(action: {
-                        showingCredits.toggle()
-                    }
-                           , label: {
+                        selectedTodo = nil
+                        textFieldText = ""
+                        showingSheet = true
+                    }, label: {
                         Image(systemName: "plus")
                             .font(.system(.largeTitle))
                             .clipShape(Circle())
@@ -52,12 +59,12 @@ struct Notes: View {
                             .foregroundColor(Color("AccentColor"))
                             .padding(.all, 7)
                     })
-                    .sheet(isPresented: $showingCredits) {
+                    .sheet(isPresented: $showingSheet) {
                         VStack{
                             Spacer()
                             TextField("Add A Note: ", text: $textFieldText)
                                 .onSubmit{
-                                    addToDo()
+                                    saveNote()
                                 }
                                 .submitLabel(.done)
                                 .font(.headline)
@@ -68,7 +75,7 @@ struct Notes: View {
                                 .padding(.horizontal)
                             Spacer()
                             Button("Save Note") {
-                                addToDo()
+                                saveNote()
                             }
                             .padding(.all, 10.0)
                             .foregroundColor(Color("ReverseAccColor"))
@@ -88,11 +95,15 @@ struct Notes: View {
         }
     }
     
-    func addToDo() {
+    func saveNote() {
         guard !textFieldText.isEmpty else { return }
-        todoDataController.addTodo(text: textFieldText)
+        if let todo = selectedTodo {
+            todoDataController.updateTodo(todo, with: textFieldText)
+        } else {
+            todoDataController.addTodo(text: textFieldText)
+        }
         textFieldText = ""
-        showingCredits.toggle()
+        showingSheet = false
     }
 }
 

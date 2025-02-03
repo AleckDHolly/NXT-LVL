@@ -9,15 +9,11 @@ import Foundation
 
 class QuotesViewModel: ObservableObject {
     @Published var quote: [QuotesModel]?
-    private let categories: [String] = ["success", "life", "knowledge", "inspirational", "courage"]
-    private var randomCategory: String {
-            return categories.randomElement() ?? "knowledge"
-        }
     
     func fetchData() {
-        let url = URL(string: "https://api.api-ninjas.com/v1/quotes?category=\(randomCategory)")!
+        let url = URL(string: "https://api.api-ninjas.com/v1/quotes")!
         var request = URLRequest(url: url)
-        request.setValue("y8vl3FkpUqK2X19eN2VKZg==Pn51vKMEzT8NFWPr", forHTTPHeaderField: "X-Api-Key")
+        request.setValue("2h0OlqjwmbKls3G4CuUpGAgOY6vJW5ieQYfjTxKb", forHTTPHeaderField: "X-Api-Key")
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             guard let data = data else { 
                 print("No data received from the API")
